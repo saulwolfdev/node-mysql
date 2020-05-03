@@ -29,8 +29,15 @@ CREATE TABLE pedidos(
     FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
     FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
 )
+//crear usuarios
+INSERT INTO clientes (nombre, apellido,edad,telefono)VALUE("saul","alejos","35","1159089118")
 
-
+// cargar un csv
+LOAD DATA LOCAL INFILE "C:/dev/node-mysql/src/sql/uno.csv"
+INTO TABLE clientes
+FIELDS TERMINATED BY ";"
+LINES TERMINATED BY "\n"
+(nombre,apellido,edad,telefono)
 ";
 $resultado=mysql_query($conexion,$solicitud);
 while($uno=mysqli_fetch_array($resultado)){
